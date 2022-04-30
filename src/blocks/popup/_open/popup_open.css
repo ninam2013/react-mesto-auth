@@ -1,0 +1,5 @@
+.popup_open {
+	height: 100%;
+	opacity: 1;
+	transition: opacity .25s ease-in, height 0ms ease-in 0ms;
+}
