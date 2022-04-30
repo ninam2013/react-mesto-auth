@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import Header from '../components/Header';
 import Main from '../components/Main';
 import Footer from '../components/Footer';
@@ -7,6 +8,8 @@ import EditProfilePopup from '../components/EditProfilePopup';
 import EditAvatarPopup from '../components/EditAvatarPopup';
 import AddPlacePopup from '../components/AddPlacePopup';
 import ImagePopup from '../components/ImagePopup';
+import SignUp from '../components/SignUp';
+import SignIn from '../components/SignIn';
 import api from '../utils/Api'
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
@@ -99,7 +102,7 @@ function App() {
 
   function handleCardDelete(card) {
     api.deleteCard(card._id)
-      .then((res) => {        
+      .then((res) => {
         setCards((state) => state.filter((c) => c._id !== card._id));
       })
       .catch((err) => {
@@ -113,28 +116,40 @@ function App() {
       <div className="body">
         <div className="page">
           <Header />
-          <Main
-            onEditAvatar={handleEditAvatarClick}
-            onEditProfile={handleEditProfileClick}
-            onAddPlace={handleAddPlaceClick}
-            onCardClick={handleCardClick}
-            onCardLike={handleCardLike}
-            onCardDelete={handleCardDelete}
-            cards={cards}
-            setCards={setCards}
-          />
-          <EditAvatarPopup isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateAvatar={handleUpdateAvatar} />
+          <Switch>
+            <Route exact path="/">     
+              <Main
+                onEditAvatar={handleEditAvatarClick}
+                onEditProfile={handleEditProfileClick}
+                onAddPlace={handleAddPlaceClick}
+                onCardClick={handleCardClick}
+                onCardLike={handleCardLike}
+                onCardDelete={handleCardDelete}
+                cards={cards}
+                setCards={setCards}
+              />
+            </Route>
 
-          <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateUser} />
+            <Route path="/sign-up">
+              <SignUp />
+            </Route>
 
-          <AddPlacePopup isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} onAddPlace={handleAddPlaceSubmit} />
+            <Route path="/sign-in">
+              <SignIn />
+            </Route>
 
-          <PopupWithForm name="delete-confirm" title="Вы уверены?" buttonText="Да">
-          </PopupWithForm>
+            <EditAvatarPopup isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateAvatar={handleUpdateAvatar} />
+
+            <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateUser} />
+
+            <AddPlacePopup isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} onAddPlace={handleAddPlaceSubmit} />
+
+            <PopupWithForm name="delete-confirm" title="Вы уверены?" buttonText="Да">
+            </PopupWithForm>
 
 
-          <ImagePopup card={selectedCard} onClose={closeAllPopups} />
-
+            <ImagePopup card={selectedCard} onClose={closeAllPopups} />
+          </Switch>
           <Footer />
         </div>
       </div>
