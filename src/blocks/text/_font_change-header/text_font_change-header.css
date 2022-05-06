@@ -1,0 +1,15 @@
+.text_font_change-header {
+    display: inherit;
+    font-size: 18px;
+    line-height: 22px;  
+    text-align: center; 
+}
+
+@media screen and (max-width: 480px) {
+    .text_font_change-header {
+        font-size: 14px;
+        line-height: 17px;
+        padding: 0;
+        margin: 0;    
+    }
+}

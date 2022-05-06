@@ -1,0 +1,16 @@
+@media screen and (max-width: 766.99px) {
+    .header__btn-menu_active {
+      order: 1;
+    }
+  
+    .header__btn-menu_active::before {
+      transform: rotate(45deg);
+      top: 6.9px;
+  }
+  
+  .header__btn-menu_active::after {
+    transform: rotate(-45deg);
+    bottom: 6.9px;
+  }
+  }
+  

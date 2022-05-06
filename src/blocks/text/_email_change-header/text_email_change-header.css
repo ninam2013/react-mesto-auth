@@ -1,0 +1,18 @@
+.text_email_change-header {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: #fff;
+    text-align: end;
+}
+.text_email_change-header:hover {
+    opacity: 1;
+}
+
+@media screen and (min-width: 320px) and (max-width: 766.99px) {
+    .text_email_change-header {
+        padding: 40px 0 0 0;
+        margin: 0;
+        text-align: center;  
+    }
+}
