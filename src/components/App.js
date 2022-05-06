@@ -161,7 +161,11 @@ function App() {
           history.push('/');
         }
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        setImg(Error);
+        setMessage('Что-то пошло не так! Попробуйте ещё раз');
+        handleInfoTooltip(true);      
+      })     
   }
 
   function hendleOnSignOut() {
