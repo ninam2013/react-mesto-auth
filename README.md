@@ -2,13 +2,24 @@
 
 Веб-приложение с возможностью регистрации, добавления своих фотографий, просмотра чужих и оценивания их.
 
+<img src="./readme-gif/presentation.gif" alt="показ" width="1000px">
 
 ## Используемые технологии:
-* CSS Flexbox
+* HTML
+* CSS
 * Git
 * JavaScript
 * Fetch API
-* React
+* React.js
+  * useState
+  * useEffect
+  * useHistory
+  * localStorage
+  * Switch
+  * Route
+  * Register
+  * ProtectedRoute
+  * Context.Provider
 
 ## Пакеты используемые в сборках:
 * "@testing-library/jest-dom": "^5.16.3",
